@@ -1,0 +1,14 @@
+server:
+  port: 9999
+  contextPath: /uaa
+
+security:
+  user:
+    password: password
+
+spring:
+  data:
+    mongodb:
+      host: localhost
+      database: aggregatr
+      port: 27017

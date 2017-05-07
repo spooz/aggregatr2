@@ -15,8 +15,12 @@ class LinkService {
       return linkRepository.findById(linkId).orElseThrow(() -> new LinkNotFoundException());
     }
 
-    String create(Link link) {
+    Link create(String name, String href, String owner) {
+        Link link = new Link();
+        link.setName(name);
+        link.setHref(href);
+        link.setOwner(owner);
         link.setId(UUID.randomUUID().toString());
-        return linkRepository.save(link).getId();
+        return linkRepository.save(link);
     }
 }

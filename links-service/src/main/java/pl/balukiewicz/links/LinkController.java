@@ -23,8 +23,10 @@ class LinkController {
 
     //TODO: DTO?
     @PostMapping
-    ResponseEntity<String> create(@Valid @RequestBody Link link) {
-        return ResponseEntity.ok(linkService.create(link));
+    ResponseEntity<String> create(@Valid @RequestBody LinkForm link) {
+        return ResponseEntity.ok(
+                linkService.create(link.getName(), link.getHref(), link.getOwner())
+                .getId());
     }
 
     @ExceptionHandler(LinkNotFoundException.class)
